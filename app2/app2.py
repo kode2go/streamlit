@@ -12,7 +12,11 @@ st.write(pd.DataFrame({
     'second column': [10, 20, 30, 40]
 }))
 
-import numpy as np
-
-dataframe = np.random.randn(10, 20)
-st.dataframe(dataframe)
+uploaded_file = st.file_uploader('Choose a file')
+if uploaded_file is not None:
+    #read csv
+    df1=pd.read_csv(uploaded_file)
+    st.write(df1)
+else:
+    st.warning('you need to upload a file')
+    
